@@ -1,59 +1,60 @@
-Katkıda Bulunma Rehberi
+# Contributing to To-Do List Project
 
-Öncelikle, projemize katkı sağlamayı düşündüğünüz için teşekkür ederiz! Bu kılavuz, nasıl katkıda bulunabileceğiniz ve projeye dahil olmanız için gereken adımları açıklamaktadır.
+Teşekkürler! Bu projeye katkıda bulunmak istiyorsanız aşağıdaki adımları takip edebilirsiniz.
 
-Nasıl Katkıda Bulunabilirsiniz?
+## 🚀 Nasıl Katkıda Bulunabilirim?
 
-Aşağıdaki alanlarda katkıda bulunabilirsiniz:
+1. **Projeyi Fork'layın**  
+   Projeyi kendi GitHub hesabınıza kopyalamak için `Fork` düğmesine tıklayın.
 
-Hata Bildirimi: Karşılaştığınız hataları Issues sekmesi üzerinden bildirebilirsiniz.
+2. **Projeyi Klonlayın**  
+   Terminal veya komut satırında aşağıdaki komutu çalıştırarak kendi makinenize klonlayın:
 
-Yeni Özellikler: Projeye eklenmesini düşündüğünüz özellikleri önererek geliştirme sürecine katkıda bulunabilirsiniz.
+   ```sh
+   git clone https://github.com/saitsabuncu/to_do_list.git
+   ```
 
-Kod Geliştirmeleri: Mevcut kodu optimize etmek, hata düzeltmeleri yapmak veya yeni özellikler eklemek için pull request (PR) gönderebilirsiniz.
+3. **Yeni Bir Branch Açın**  
+   Yeni bir özellik eklemek veya hata düzeltmek için kendi branch'inizi oluşturun:
 
-Dokümantasyon: README veya diğer belgeleri geliştirerek projenin anlaşılmasını kolaylaştırabilirsiniz.
+   ```sh
+   git checkout -b yeni-özellik
+   ```
 
-Başlamadan Önce
+4. **Geliştirmeleri Yapın ve Test Edin**  
+   Kodunuzu geliştirin ve düzgün çalıştığını kontrol edin.
 
-Katkıda bulunmadan önce aşağıdaki adımları takip edin:
+5. **Değişiklikleri Commit Edin**  
+   Yaptığınız değişiklikleri commit edin:
 
-Fork Yapın: Projeyi kendi GitHub hesabınıza fork'layın.
+   ```sh
+   git add .
+   git commit -m "Yeni özellik eklendi: [özellik açıklaması]"
+   ```
 
-Depoyu Klonlayın:
+6. **Branch'i Remote Reponuza Gönderin**  
+   Değişiklikleri kendi GitHub deponuza push edin:
 
-git clone https://github.com/saitsabuncu/to_do_list.git
+   ```sh
+   git push origin yeni-özellik
+   ```
 
-Bağımlılıkları Kurun:
+7. **Pull Request (PR) Açın**  
+   GitHub sayfanıza gidin, orijinal depoya bir `Pull Request` oluşturun ve değişikliklerinizi açıklayın.
 
-pip install -r requirements.txt
+---
 
-Geliştirme İçin Yeni Bir Branch Açın:
+## 📌 Katkıda Bulunma Kuralları
 
-git checkout -b yeni-ozellik
+- **Kod standartlarını takip edin:** Python için PEP8 standardını uygulayın.
+- **README.md ve belgeleri güncelleyin:** Yeni özellikler eklediğinizde dokümantasyonu güncellemeyi unutmayın.
+- **Testleri kontrol edin:** Eğer varsa testlerinizi çalıştırın ve hataları düzeltin.
+- **Kibar ve saygılı olun:** Açık kaynak topluluğuna saygılı olun.
 
-Kod Değişikliklerinizi Yapın ve Commit Edin:
+---
 
-git commit -m "Yeni özellik eklendi"
+## 📧 İletişim ve Geri Bildirim
 
-Değişiklikleri GitHub'a Gönderin:
+Herhangi bir sorunuz veya öneriniz varsa [GitHub Issues](https://github.com/saitsabuncu/to_do_list/issues) sekmesini kullanarak bize bildirebilirsiniz.
 
-git push origin yeni-ozellik
-
-Pull Request Açın: GitHub üzerinde projenin ana deposuna giderek, yaptığınız değişiklikleri göndermek için bir pull request (PR) oluşturun.
-
-Kodlama Standartları
-
-Kodlarınızı Python PEP8 kurallarına uygun olarak yazmaya özen gösterin.
-
-Açıklayıcı değişken isimleri kullanarak kodun okunabilir olmasını sağlayın.
-
-Yeni eklenen her işlev için yeterli düzeyde yorum satırları ekleyin.
-
-Mümkünse testler ekleyerek kodun doğruluğunu sağlayın.
-
-Geri Bildirim
-
-Eğer herhangi bir konuda yardıma ihtiyacınız olursa veya katkı süreci hakkında sorularınız varsa, Issue açarak veya doğrudan proje sahibiyle iletişime geçerek destek alabilirsiniz.
-
-Teşekkürler ve iyi katkılar dileriz! 🚀
+Teşekkürler! 💡🚀
