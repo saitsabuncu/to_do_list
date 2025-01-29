@@ -1,1 +1,3 @@
+sqlite3      # Eğer veritabanı olarak SQLite kullanıyorsan
+requests>=2.26  # Eğer dış API çağrıları yapıyorsan
 
