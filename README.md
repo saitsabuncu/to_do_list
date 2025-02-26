@@ -1,34 +1,58 @@
-# Yapılacaklar Listesi Uygulaması (To-Do List)
+# ✅ Yapılacaklar Listesi Uygulaması (To-Do List)
 
-Bu uygulama, kullanıcıların yapılacak görevlerini yönetebilmeleri için bir komut satırı tabanlı yapılacaklar listesi sistemidir. Görev ekleme, silme, tamamlanmış olarak işaretleme ve listeleme gibi temel özellikler içerir.
+Bu **komut satırı tabanlı To-Do List uygulaması**, kullanıcıların yapılacak görevlerini düzenlemelerine, görev ekleyip silmelerine, tamamlanan görevleri işaretlemelerine ve görevlerini JSON formatında kaydetmelerine olanak tanır.
 
-## Özellikler
+## 📌 Öne Çıkan Özellikler:
+- ✅ **Görev Ekleme:** Yeni görev ekleyebilir ve kategorilere ayırabilirsiniz.
+- ✅ **Görev Listeleme:** Görevleri **kategori ve öncelik seviyelerine** göre sıralayarak listeleyebilirsiniz.
+- ✅ **Görev Silme:** İstenilen kategoriden bir görevi kaldırabilirsiniz.
+- ✅ **Görev Tamamlama:** Bir görevi tamamlandı olarak işaretleyebilir ve tamamlanma tarihini kaydedebilirsiniz.
+- ✅ **Veri Kaydetme:** Tüm görevleriniz **JSON dosyasında otomatik olarak saklanır ve yüklenir**.
 
-- **Görev Ekleme**: Yeni bir görev ekleyebilir ve kategorilere ayırabilirsiniz.
-- **Görev Listeleme**: Görevleri kategori ve öncelik seviyelerine göre görüntüleyebilirsiniz.
-- **Görev Silme**: Belirli bir kategoriden istenilen görevi silebilirsiniz.
-- **Görev Tamamlama**: Görevleri tamamlanmış olarak işaretleyebilir ve tamamlama tarihlerini kaydedebilirsiniz.
-- **Görev Kaydetme ve Yükleme**: Görevler otomatik olarak bir JSON dosyasına kaydedilir ve yüklenir.
+---
 
-## Gereksinimler
+## 📌 Kurulum
 
-Bu projeyi çalıştırmak için aşağıdaki yazılımlara ihtiyacınız vardır:
+### **1️⃣ Gerekli Yazılımlar**
+- **Python 3.7 veya üstü**  
+- `json`, `traceback`, `datetime` (Python’un içinde gömülü olarak gelir)
 
-- Python 3.7 veya üzeri
-- `json`, `traceback`, `datetime` (Python ile birlikte gelir)
+### **2️⃣ Depoyu Klonlayın**
+```bash
+git clone https://github.com/saitsabuncu/to_do_list.git
+cd to_do_list
+```
 
-## Kurulum
+### **3️⃣ Sanal Ortam (Virtual Environment) Kurun**
+```bash
+python -m venv .venv
+```
+### **4️⃣ Sanal Ortamı Aktif Edin**
+**Windows için:**
+```bash
+.venv\Scripts\activate
+```
+**Mac/Linux için:**
+```bash
+source .venv/bin/activate
+```
 
-1. Proje dosyalarını bilgisayarınıza indirin.
-2. Terminal veya komut istemcisinde projenin bulunduğu dizine gidin.
-3. Aşağıdaki komutu çalıştırarak uygulamayı başlatın:
-   ```bash
-   python main.py
-   ```
+### **5️⃣ Bağımlılıkları Yükleyin (Eğer Gerekliyse)**
+```bash
+pip install -r requirements.txt
+```
 
-## Kullanım
+### **6️⃣ Uygulamayı Başlatın**
+```bash
+python main.py
+```
 
-Program başladığında, aşağıdaki menü karşınıza çıkacaktır:
+---
+
+## 📌 Kullanım
+
+Program başladığında, aşağıdaki **ana menü** görüntülenecektir:
+
 ```
 To-Do List Uygulaması
 1. Görev Ekle
@@ -39,20 +63,29 @@ To-Do List Uygulaması
 6. Çıkış
 ```
 
-### Örnek İş Akışı
+### **Örnek Kullanım Akışı**
+- **Yeni görev eklemek için** `1` seçeneğini seçin, ardından kategori ve görev detaylarını girin.
+- **Tüm görevleri görmek için** `2` seçeneğini kullanın.
+- **Belirli bir görevi silmek için** `3` seçeneğini seçin ve kategori içinden silmek istediğiniz görevi girin.
+- **JSON dosyasına kaydetmek için** `4` seçeneğini seçin.
+- **Bir görevi tamamlandı olarak işaretlemek için** `5` seçeneğini seçin.
 
-1. Görev eklemek için **1** tuşuna basarak "Görev Ekle" seçeneğini seçin.
-2. Görevleri görüntülemek için **2** tuşuna basarak "Görevleri Göster" seçeneğini kullanın.
-3. Bir görevi silmek için **3** tuşuna basarak ilgili görevi kategorisinden çıkarabilirsiniz.
-4. Görevlerinizi kaydetmek için **4** tuşuna basarak JSON dosyasına kaydedin.
-5. Görevlerinizi tamamlanmış olarak işaretlemek için **5** tuşuna basın.
+---
 
-### JSON Dosya Yapısı
+## 📌 JSON Veri Yapısı
 
-Görevleriniz `completed_tasks.json` dosyasında saklanır. Dosya yapısı şu şekildedir:
+Tüm görevler **completed_tasks.json** dosyasında saklanır.  
+📌 **Örnek JSON yapısı:**
 ```json
 {
-    "Kişisel": [],
+    "Kişisel": [
+        {
+            "task": "Kitap oku",
+            "priority": "orta",
+            "completed": false,
+            "completion_date": "Henüz tamamlanmadı"
+        }
+    ],
     "Dini": [
         {
             "task": "Sabah namazını kıl",
@@ -64,20 +97,40 @@ Görevleriniz `completed_tasks.json` dosyasında saklanır. Dosya yapısı şu �
 }
 ```
 
-## Proje Yapısı
+---
 
-- **`main.py`**: Ana menü ve uygulamanın giriş noktası.
-- **`add_task.py`**: Yeni görev ekleme işlevi.
-- **`delete_task.py`**: Görev silme işlevi.
-- **`show_tasks.py`**: Görevleri listeleme ve görüntüleme işlevi.
-- **`mark_complete.py`**: Görevleri tamamlanmış olarak işaretleme işlevi.
-- **`save_tasks.py`**: Görevleri JSON dosyasına kaydetme işlevi.
-- **`load_tasks.py`**: Görevleri JSON dosyasından yükleme işlevi.
+## 📌 Proje Yapısı
 
-## Katkıda Bulunma
+📂 **Proje dizininde yer alan dosyalar:**  
+```
+to_do_list/
+│── main.py              # Uygulamayı başlatan ana dosya
+│── add_task.py          # Görev ekleme işlevleri
+│── delete_task.py       # Görev silme işlevleri
+│── show_tasks.py        # Görevleri listeleme ve gösterme
+│── mark_complete.py     # Görevleri tamamlanmış olarak işaretleme
+│── save_tasks.py        # Görevleri JSON dosyasına kaydetme
+│── load_tasks.py        # Görevleri JSON dosyasından yükleme
+   task_manager.py
+│── completed_tasks.json # Görevlerin kaydedildiği dosya
+```
 
-Proje hakkında öneri ve geliştirmeler için pull request'ler kabul edilir. Lütfen önerileriniz için bir **issue** açmayı unutmayın.
+---
 
-## Lisans
+## 📌 Katkıda Bulunma
 
+🎯 **Projeye katkı sağlamak ister misiniz?** Yeni özellikler eklemek veya hataları düzeltmek için pull request gönderebilirsiniz!  
+
+### **1️⃣ Katkı Süreci**
+1. **Projeyi fork edin** ve kendi GitHub hesabınıza alın.
+2. **Yeni bir branch açın** (`git checkout -b yeni-ozellik`).
+3. **Değişiklikleri yapıp commitleyin** (`git commit -m "Yeni özellik eklendi"`).
+4. **Değişikliklerinizi kendi deponuza push edin** (`git push origin yeni-ozellik`).
+5. **Pull Request (PR) oluşturun ve katkınızı paylaşın!** 🚀
+
+---
+
+## 📌 Lisans
+
+📝 **MIT Lisansı**  
 Bu proje [MIT Lisansı](https://opensource.org/licenses/MIT) altında lisanslanmıştır.
