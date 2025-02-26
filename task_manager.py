@@ -78,37 +78,21 @@ class TaskManager:
 
         self.save_tasks_to_file()  # Her eklemeden sonra dosyayı güncelle
 
-    def list_tasks(self, category_filter=None):
-        """Tüm görevleri listele veya belirli bir kategoriyi göster."""
-        try:
-            print("\nYapılacaklar Listesi:")
-            if not self.tasks:
-                print("Liste şu anda boş.")
-                return
+    def list_tasks(self):
+        """Tüm görevleri listele."""
+        if not self.tasks:
+            print("Henüz eklenmiş bir görev bulunmuyor.")
+            return
 
-            if category_filter:
-                if category_filter in self.tasks:
-                    print(f"\nKategori: {category_filter}")
-                    tasks = sorted(self.tasks[category_filter],
-                                   key=lambda x: ["yüksek", "orta", "düşük"].index(x.priority))
-                    for i, task in enumerate(tasks, 1):
-                        print(f"{i}. {task}")
-                else:
-                    print(f"'{category_filter}' kategorisi mevcut değil.")
-            else:
-                # Tüm görevleri göster
-                for category, tasks in self.tasks.items():
-                    print(f"\nKategori: {category}")
-                    sorted_tasks = sorted(tasks, key=lambda x: ["yüksek", "orta", "düşük"].index(x.priority))
-                    for i, task in enumerate(sorted_tasks, 1):
-                        print(f"{i}. {task}")
-
-        except Exception:
-            print("Görevleri listelerken bir hata oluştu:")
-            traceback.print_exc()
+        print("\nGörev Listesi:")
+        for category, tasks in self.tasks.items():
+            print(f"\nKategori: {category}")
+            for idx, task in enumerate(tasks, 1):
+                print(f"  {idx}. {task}")
+        print()
 
     def complete_task(self):
-        """Kullanıcının belirli bir görevi tamamlanmış olarak işaretlemesini sağlar."""
+        """Belirli bir görevi tamamlanmış olarak işaretler."""
         try:
             category = input("Hangi kategoriden bir görevi tamamlanmış olarak işaretlemek istiyorsunuz?: ")
 
@@ -116,7 +100,7 @@ class TaskManager:
                 print("Bu kategori mevcut değil.")
                 return
 
-            self.list_tasks(category)  # Kullanıcıya mevcut görevleri göster
+            self.list_tasks()  # Kullanıcıya mevcut görevleri göster
 
             try:
                 task_number = int(input("Tamamlamak istediğiniz görevin numarasını girin: "))
@@ -134,33 +118,3 @@ class TaskManager:
         except Exception:
             print("Görevi tamamlarken bir hata oluştu:")
             traceback.print_exc()
-
-    def start(self):
-        """Ana menüyü çalıştırır."""
-        while True:
-            print("\n1. Görev Ekle")
-            print("2. Görevleri Listele")
-            print("3. Görev Tamamla")
-            print("4. Çıkış")
-            choice = input("Seçiminizi yapın: ")
-
-            if choice == "1":
-                category = input("Kategori adı: ")
-                task_description = input("Görev açıklaması: ")
-                priority = input("Öncelik (yüksek, orta, düşük): ").lower()
-                self.add_task(category, task_description, priority)
-            elif choice == "2":
-                self.list_tasks()
-            elif choice == "3":
-                self.complete_task()
-            elif choice == "4":
-                print("Çıkış yapılıyor...")
-                break
-            else:
-                print("Geçerli bir seçenek girin.")
-
-
-# Uygulamayı başlat
-if __name__ == "__main__":
-    task_manager = TaskManager()
-    task_manager.start()
